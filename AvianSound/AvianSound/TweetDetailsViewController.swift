@@ -86,6 +86,15 @@ class TweetDetailsViewController: UIViewController {
     }
 
     @IBAction func onFavoriteTweet(sender: UIButton) {
+        
+        AvianSoundClient.sharedClient.favorite(tweet, success: { () -> () in
+            self.dismissViewControllerAnimated(true) {
+                print("favorited: \(self.tweet.text)")
+                self.firstViewController.loadData(nil)
+            }
+        }) {(error: NSError!) -> () in
+            print("error: \(error.localizedDescription)")
+        }
     }
     
     @IBAction func onRetweet(sender: UIButton) {
