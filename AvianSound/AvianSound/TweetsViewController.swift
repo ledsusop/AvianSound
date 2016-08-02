@@ -24,6 +24,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         loadHome()
     }
     
+    @IBAction func onLogoutBtnClick(sender: UIBarButtonItem) {
+        AvianSoundClient.sharedClient.logout()
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets?.count ?? 0
     }

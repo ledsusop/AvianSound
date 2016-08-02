@@ -143,7 +143,13 @@
                             <constraint firstItem="VYd-Ld-69n" firstAttribute="top" secondItem="MaA-jh-FUw" secondAttribute="bottom" id="yGT-tG-sLF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Q1J-fZ-QVh"/>
+                    <navigationItem key="navigationItem" id="Q1J-fZ-QVh">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="nev-29-9j4">
+                            <connections>
+                                <action selector="onLogoutBtnClick:" destination="ZNy-cM-2q7" id="Fze-5E-RX6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="VYd-Ld-69n" id="iXn-bO-nOh"/>
                     </connections>
@@ -155,7 +161,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kS8-6q-jOK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FsZ-Uy-iLM" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="tweetViewNavController" automaticallyAdjustsScrollViewInsets="NO" id="FsZ-Uy-iLM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HqU-yY-95Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

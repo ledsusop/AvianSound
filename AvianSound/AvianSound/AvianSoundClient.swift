@@ -102,22 +102,34 @@ class AvianSoundClient:BDBOAuth1SessionManager {
         
     }
     
+    func logout() {
+        User.currentUser = nil
+        self.deauthorize()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("UserDidLogout", object: nil)
+    }
+    
     func handleURLCallback(url:NSURL) {
         
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         self.fetchAccessToken(requestToken, success: { (fetchAccessToken:BDBOAuth1Credential!) -> Void in
             
             print("access token received")
-            self.loginSuccess?()
             
-//            self.currentAccount({ (user: User) -> () in
-//                
-//                print("received user")
-//                
-//                }, failure:  { (error: NSError!) -> () in
-//                    print("error: \(error.localizedDescription)")
-//            })
-//            
+            
+            self.currentAccount({ (user: User) -> () in
+                
+                User.currentUser = user
+                
+                self.loginSuccess?()
+                
+                }, failure:  { (error: NSError!) -> () in
+                    print("error: \(error.localizedDescription)")
+                    self.loginFailure?(error)
+            })
+            
+            
+
             
             
         }) { (error: NSError!) -> Void in
