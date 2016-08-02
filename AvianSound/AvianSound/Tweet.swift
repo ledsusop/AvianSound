@@ -16,12 +16,20 @@ class Tweet: NSObject {
     var favoritesCount: Int = 0
     var user: User?
     var id: Int!
+    var inReplyToStatusId: Int?
+    var inReplyToUserIdStr: String?
+    var inReplyToScreenName: String?
+    
     
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
         text = dictionary["text"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         favoritesCount = (dictionary["favorites_count"] as? Int) ?? 0
+        
+        inReplyToStatusId = (dictionary["in_reply_to_status_id"] as? Int) ?? 0
+        inReplyToUserIdStr = (dictionary["in_reply_to_user_id_str"] as? String)
+        inReplyToScreenName = (dictionary["in_reply_to_screen_name"] as? String)
         
         if let timeStampString = dictionary["created_at"] as? String{
             let formatter = NSDateFormatter()

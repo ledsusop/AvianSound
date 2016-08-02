@@ -144,9 +144,9 @@ class AvianSoundClient:BDBOAuth1SessionManager {
         
     }
     
-    func tweet(tweetMessage : String, success: () -> (), failure: (NSError) -> ()){
+    func tweet(tweetMessage : String, tweetToReplyToId: Int?, success: () -> (), failure: (NSError) -> ()){
         
-        POST(AvianSoundClient.tweetPath, parameters: ["status":tweetMessage], progress: nil, success: {(task: NSURLSessionDataTask, response: AnyObject?)-> Void in
+        POST(AvianSoundClient.tweetPath, parameters: tweetToReplyToId != nil ? ["status":tweetMessage,"in_reply_to_status_id":String(tweetToReplyToId)]: ["status":tweetMessage], progress: nil, success: {(task: NSURLSessionDataTask, response: AnyObject?)-> Void in
             print(response)
             
             //let dictionaries = response as! [NSDictionary]
@@ -196,8 +196,6 @@ class AvianSoundClient:BDBOAuth1SessionManager {
                 
         })
     }
-    
-    
     
     
 }

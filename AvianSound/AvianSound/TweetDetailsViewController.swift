@@ -83,6 +83,7 @@ class TweetDetailsViewController: UIViewController {
     }
     
     @IBAction func onReplyTweet(sender: UIButton) {
+        self.performSegueWithIdentifier("replyToSegue", sender: self)
     }
 
     @IBAction func onFavoriteTweet(sender: UIButton) {
@@ -124,14 +125,12 @@ class TweetDetailsViewController: UIViewController {
     }
    
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let destinationController = segue.destinationViewController.childViewControllers[0] as? ComposeTweetViewController{
+            destinationController.tweetToReplyTo = self.tweet
+            destinationController.firstViewController = self.firstViewController
+            
+        }
     }
-    */
 
 }

@@ -19,6 +19,7 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var footerBottomConstraint: NSLayoutConstraint!
     
     var firstViewController: TweetsViewController!
+    var tweetToReplyTo:Tweet?
     
     internal func setUserProfile(imageView: UIImageView, nsURL: NSURL?){
         if nsURL != nil {
@@ -50,7 +51,7 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func onTweetButtonClick(sender: UIButton) {
         print("posting tweet now")
-        AvianSoundClient.sharedClient.tweet(tweetInput.text!, success: { () -> () in
+        AvianSoundClient.sharedClient.tweet(tweetInput.text!, tweetToReplyToId: (self.tweetToReplyTo != nil ? self.tweetToReplyTo!.id : nil),  success: { () -> () in
             self.dismissViewControllerAnimated(true) {
                 print("tweeted: \(self.tweetInput.text)")
                 self.firstViewController.loadData(nil)
@@ -123,7 +124,12 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
         }
         
         tweetBtn.layer.cornerRadius = 5
-        tweetInput.becomeFirstResponder()
+        
+        
+        if tweetToReplyTo != nil {
+            tweetInput.text = "@"+((tweetToReplyTo!.user?.screenName)! as String)+" "
+            tweetInput.becomeFirstResponder()
+        }
 
     }
     
@@ -138,6 +144,13 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if tweetInput != nil  && tweetToReplyTo != nil{
+            tweetInput.text = "@"+((tweetToReplyTo!.user?.screenName)! as String)+" "
+        }
     }
   
 

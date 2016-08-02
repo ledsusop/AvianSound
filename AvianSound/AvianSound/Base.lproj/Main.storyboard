@@ -293,6 +293,7 @@
                         <outlet property="timeStamp" destination="pOP-XS-BG6" id="0QG-pw-OO8"/>
                         <outlet property="tweetText" destination="9DJ-i5-6jA" id="ORd-YF-I1r"/>
                         <outlet property="userName" destination="l4w-wv-Vym" id="JTU-ad-qg2"/>
+                        <segue destination="blb-Hx-Iya" kind="presentation" identifier="replyToSegue" id="FeM-xJ-yDZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9w9-FE-Ijq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -425,4 +426,7 @@
             <point key="canvasLocation" x="3387" y="1068"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="FeM-xJ-yDZ"/>
+    </inferredMetricsTieBreakers>
 </document>
