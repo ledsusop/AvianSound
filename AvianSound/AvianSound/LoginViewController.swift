@@ -24,11 +24,11 @@ class LoginViewController: UIViewController {
 
 
     @IBAction func onLoginButtonClick(sender: UIButton) {
-        let twitterClient = AvianSoundClient.sharedClient
-        
-        twitterClient.login({ () -> () in
+        AvianSoundClient.sharedClient.login({ () -> () in
             
             print("logged in")
+            
+            self.performSegueWithIdentifier("loginSegue", sender: self)
             
         }) { (error: NSError) in
             

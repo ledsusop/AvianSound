@@ -15,6 +15,8 @@
 		367274281D50355B0019B799 /* AvianSoundClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274271D50355B0019B799 /* AvianSoundClient.swift */; };
 		3672742D1D5046F30019B799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672742C1D5046F30019B799 /* User.swift */; };
 		3672742F1D5046FF0019B799 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672742E1D5046FF0019B799 /* Tweet.swift */; };
+		367274311D5065980019B799 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274301D5065980019B799 /* TweetsViewController.swift */; };
+		367274331D506F070019B799 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274321D506F070019B799 /* TweetTableViewCell.swift */; };
 		8598B0235BEFAF85385A8F37 /* Pods_AvianSound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135178148AB7B7C6870C0500 /* Pods_AvianSound.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		367274271D50355B0019B799 /* AvianSoundClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvianSoundClient.swift; sourceTree = "<group>"; };
 		3672742C1D5046F30019B799 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3672742E1D5046FF0019B799 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		367274301D5065980019B799 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
+		367274321D506F070019B799 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		39650BC33063322ED8CB97D4 /* Pods-AvianSound.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvianSound.release.xcconfig"; path = "Pods/Target Support Files/Pods-AvianSound/Pods-AvianSound.release.xcconfig"; sourceTree = "<group>"; };
 		DA87C9AD2016907A0C338C3E /* Pods-AvianSound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvianSound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AvianSound/Pods-AvianSound.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				367274161D5027300019B799 /* LoginViewController.swift */,
+				367274301D5065980019B799 /* TweetsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 		3672742B1D5046920019B799 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				367274321D506F070019B799 /* TweetTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -254,9 +260,11 @@
 			files = (
 				3672742D1D5046F30019B799 /* User.swift in Sources */,
 				3672742F1D5046FF0019B799 /* Tweet.swift in Sources */,
+				367274311D5065980019B799 /* TweetsViewController.swift in Sources */,
 				367274171D5027300019B799 /* LoginViewController.swift in Sources */,
 				367274281D50355B0019B799 /* AvianSoundClient.swift in Sources */,
 				367274151D5027300019B799 /* AppDelegate.swift in Sources */,
+				367274331D506F070019B799 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

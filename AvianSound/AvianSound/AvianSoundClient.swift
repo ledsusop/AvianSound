@@ -52,11 +52,13 @@ class AvianSoundClient:BDBOAuth1SessionManager {
             let user = User(dictionary: userDictionary)
             
             print("user: \(user.name)")
+            success(user)
             
             
             }, failure: { (task: NSURLSessionDataTask?, error: NSError!) -> Void in
                 
                 print("error: \(error.localizedDescription)")
+                failure(error)
                 
         })
     }
@@ -69,14 +71,13 @@ class AvianSoundClient:BDBOAuth1SessionManager {
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries)
             
-            for tweet in tweets {
-                print("tweet: \(tweet.text)")
-            }
+            success(tweets)
             
             
             }, failure: { (task: NSURLSessionDataTask?, error: NSError!) -> Void in
                 
                 print("error: \(error.localizedDescription)")
+                failure(error)
                 
         })
     }
@@ -117,15 +118,6 @@ class AvianSoundClient:BDBOAuth1SessionManager {
 //                    print("error: \(error.localizedDescription)")
 //            })
 //            
-//            self.homeTimeline({ (tweets: [Tweet]) -> () in
-//                
-//                print("received tweets")
-//                
-//                }, failure:  { (error: NSError!) -> () in
-//                    
-//                    print("error: \(error.localizedDescription)")
-//            })
-            
             
             
         }) { (error: NSError!) -> Void in
