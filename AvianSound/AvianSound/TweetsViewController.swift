@@ -34,6 +34,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func onLogoutBtnClick(sender: UIBarButtonItem) {
         AvianSoundClient.sharedClient.logout()
     }
+    
+    @IBAction func onNewTweet(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("composeSegue", sender: self)
+    }
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets?.count ?? 0
     }
@@ -75,15 +81,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationController = segue.destinationViewController.childViewControllers[0] as! ComposeTweetViewController
+        destinationController.firstViewController = self
+    }
     
 }

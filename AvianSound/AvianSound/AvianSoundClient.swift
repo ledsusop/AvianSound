@@ -21,6 +21,7 @@ class AvianSoundClient:BDBOAuth1SessionManager {
     static let authorizeURL = "https://api.twitter.com/oauth/authorize?oauth_token"
     static let verifyCredentialPath = AvianSoundClient.twitterAPIVersion+"/account/verify_credentials.json"
     static let homeTimeLinePath = AvianSoundClient.twitterAPIVersion+"/statuses/home_timeline.json"
+    static let tweetPath = AvianSoundClient.twitterAPIVersion+"/statuses/update.json"
     
     static let GET = "GET"
     static let POST = "POST"
@@ -137,6 +138,25 @@ class AvianSoundClient:BDBOAuth1SessionManager {
             self.loginFailure?(error)
         }
         
+    }
+    
+    func tweet(tweetMessage : String, success: () -> (), failure: (NSError) -> ()){
+        
+        POST(AvianSoundClient.tweetPath, parameters: ["status":tweetMessage], progress: nil, success: {(task: NSURLSessionDataTask, response: AnyObject?)-> Void in
+            print(response)
+            
+            //let dictionaries = response as! [NSDictionary]
+            //let tweets = Tweet.tweetsWithArray(dictionaries)
+            
+            success()
+            
+            
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError!) -> Void in
+                
+                print("error: \(error.localizedDescription)")
+                failure(error)
+                
+        })
     }
     
     

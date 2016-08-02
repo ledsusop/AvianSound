@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -103,6 +104,7 @@
                                             <constraints>
                                                 <constraint firstItem="dpE-Cd-4Iw" firstAttribute="leading" secondItem="vaX-wB-HNF" secondAttribute="trailing" constant="10" id="01L-X0-MGS"/>
                                                 <constraint firstItem="vaX-wB-HNF" firstAttribute="top" secondItem="Qp1-Yw-PEL" secondAttribute="top" constant="10" id="1s8-gC-nni"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pk1-aH-Yh7" secondAttribute="bottom" constant="10" id="1yL-4h-KYd"/>
                                                 <constraint firstItem="dpE-Cd-4Iw" firstAttribute="centerY" secondItem="vaX-wB-HNF" secondAttribute="centerY" id="62t-RD-ToP"/>
                                                 <constraint firstAttribute="trailing" secondItem="rHG-eZ-b5s" secondAttribute="trailing" constant="10" id="FmB-xB-bGe"/>
                                                 <constraint firstItem="gB7-aN-Tvq" firstAttribute="centerY" secondItem="vaX-wB-HNF" secondAttribute="centerY" id="K7y-xD-S2z"/>
@@ -149,14 +151,91 @@
                                 <action selector="onLogoutBtnClick:" destination="ZNy-cM-2q7" id="Fze-5E-RX6"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="eTf-7d-MxG">
+                            <connections>
+                                <action selector="onNewTweet:" destination="ZNy-cM-2q7" id="t9N-O7-BhY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="VYd-Ld-69n" id="iXn-bO-nOh"/>
+                        <segue destination="blb-Hx-Iya" kind="presentation" identifier="composeSegue" id="0M8-Sw-EUI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YA3-S2-oBk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1938" y="214"/>
+            <point key="canvasLocation" x="1934" y="289"/>
+        </scene>
+        <!--Compose Tweet View Controller-->
+        <scene sceneID="BJ3-kM-GfK">
+            <objects>
+                <viewController storyboardIdentifier="composeTweetViewController" id="hC4-Fz-ITV" customClass="ComposeTweetViewController" customModule="AvianSound" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NSe-ao-pYl"/>
+                        <viewControllerLayoutGuide type="bottom" id="jnL-Hy-u5Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8gz-jU-w0D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What's happening?" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="qt2-0z-SCq">
+                                <rect key="frame" x="10" y="74" width="580" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sq-Nt-Pl5">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phV-TU-Siy">
+                                        <rect key="frame" x="510" y="12" width="80" height="28"/>
+                                        <color key="backgroundColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="uR8-KD-OU0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Tweet"/>
+                                        <connections>
+                                            <action selector="onTweetButtonClick:" destination="hC4-Fz-ITV" eventType="touchUpInside" id="daE-4D-vCe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="phV-TU-Siy" secondAttribute="trailing" constant="10" id="8u4-HU-FLb"/>
+                                    <constraint firstAttribute="height" constant="50" id="S4j-q0-iKL"/>
+                                    <constraint firstAttribute="bottom" secondItem="phV-TU-Siy" secondAttribute="bottom" constant="10" id="zQ6-Gn-aAG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qt2-0z-SCq" firstAttribute="leading" secondItem="8gz-jU-w0D" secondAttribute="leading" constant="10" id="3Dc-fY-x9C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3sq-Nt-Pl5" secondAttribute="trailing" constant="-20" id="BCF-AS-LHI"/>
+                            <constraint firstItem="jnL-Hy-u5Y" firstAttribute="top" secondItem="3sq-Nt-Pl5" secondAttribute="bottom" id="UYU-I9-SH9"/>
+                            <constraint firstItem="3sq-Nt-Pl5" firstAttribute="leading" secondItem="8gz-jU-w0D" secondAttribute="leadingMargin" constant="-20" id="ZGU-pe-r1M"/>
+                            <constraint firstItem="3sq-Nt-Pl5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qt2-0z-SCq" secondAttribute="bottom" constant="10" id="ZMw-Xh-wg4"/>
+                            <constraint firstItem="qt2-0z-SCq" firstAttribute="top" secondItem="NSe-ao-pYl" secondAttribute="bottom" constant="10" id="hNq-5U-ro2"/>
+                            <constraint firstAttribute="trailing" secondItem="qt2-0z-SCq" secondAttribute="trailing" constant="10" id="pAZ-0C-Gml"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="c8b-9r-Wde">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="4qp-pE-Kw6">
+                            <connections>
+                                <action selector="onStopComposeClick:" destination="hC4-Fz-ITV" id="dFR-bB-74R"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="footerBottomConstraint" destination="UYU-I9-SH9" id="2SU-Jp-FM7"/>
+                        <outlet property="footerMenu" destination="3sq-Nt-Pl5" id="lNj-fM-sUt"/>
+                        <outlet property="tweetBtn" destination="phV-TU-Siy" id="h6j-CC-HXm"/>
+                        <outlet property="tweetInput" destination="qt2-0z-SCq" id="ks6-9t-3bd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3P-w2-lk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3387" y="281"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kS8-6q-jOK">
@@ -174,7 +253,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Uq-90-86r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="214"/>
+            <point key="canvasLocation" x="1122" y="289"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Ek-Qh-KWI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="blb-Hx-Iya" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aQ6-yV-LVR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hC4-Fz-ITV" kind="relationship" relationship="rootViewController" id="iAx-Na-cxh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rue-to-U3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2707" y="289"/>
         </scene>
     </scenes>
 </document>
