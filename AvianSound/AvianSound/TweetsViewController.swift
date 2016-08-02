@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     var tweets:[Tweet]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +24,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        loadHome()
+        self.refreshControl.addTarget(self, action: #selector(self.loadData(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        tableView.addSubview(self.refreshControl)
+        
+        loadData(nil)
     }
     
     @IBAction func onLogoutBtnClick(sender: UIBarButtonItem) {
@@ -38,7 +45,14 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    func loadHome(){
+    func loadData(refreshControl:UIRefreshControl?){
+        
+        if refreshControl != nil {
+            refreshControl!.endRefreshing()
+        }
+        
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         AvianSoundClient.sharedClient.homeTimeline({ (tweets: [Tweet]) -> () in
             
             self.tweets = tweets
@@ -46,12 +60,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             for tweet in self.tweets {
                 print(tweet.text)
             }
-            
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             self.tableView.reloadData()
             
             }, failure:  { (error: NSError!) -> () in
                 
                 print("error: \(error.localizedDescription)")
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
         })
     }
     
