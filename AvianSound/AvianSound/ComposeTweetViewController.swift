@@ -56,7 +56,7 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
                 print("tweeted: \(self.tweetInput.text)")
                 
                 if let vc = self.firstViewController as? TweetsViewController{
-                    vc.loadData(nil)
+                    vc.loadData(true,refreshControl: nil)
                 }else if let vc = self.firstViewController as? TweetDetailsViewController{
                      vc.closeDetails(true)
                 }
@@ -130,11 +130,11 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
         }
         
         tweetBtn.layer.cornerRadius = 5
+        tweetInput.becomeFirstResponder()
         
         
         if tweetToReplyTo != nil {
             tweetInput.text = "@"+((tweetToReplyTo!.user?.screenName)! as String)+" "
-            tweetInput.becomeFirstResponder()
         }
 
     }
@@ -156,7 +156,6 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
         super.awakeFromNib()
         if tweetInput != nil  && tweetToReplyTo != nil{
             tweetInput.text = "@"+((tweetToReplyTo!.user?.screenName)! as String)+" "
-            tweetInput.becomeFirstResponder()
         }
     }
   

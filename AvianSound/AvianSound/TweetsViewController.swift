@@ -9,11 +9,13 @@
 import UIKit
 import MBProgressHUD
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     
+    let ITEMS_PER_PAGE = 20
     let refreshControl = UIRefreshControl()
+    var isMoreDataLoading = false
     @IBOutlet weak var tableView: UITableView!
-    var tweets:[Tweet]!
+    var tweets:[Tweet] = [Tweet]()
     var currentSelectedTweet:Tweet?
     
     override func viewDidLoad() {
@@ -24,11 +26,29 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.refreshControl.addTarget(self, action: #selector(self.loadData(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.addTarget(self, action: #selector(self.refreshData(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         tableView.addSubview(self.refreshControl)
         
-        loadData(nil)
+        loadData(true,refreshControl: nil)
+    }
+    
+    func refreshData(refreshControl:UIRefreshControl){
+        self.loadData(true, refreshControl: refreshControl)
+    }
+    
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
+                isMoreDataLoading = true
+                loadData(false,refreshControl: nil)
+            }
+            
+        }
     }
     
     @IBAction func onLogoutBtnClick(sender: UIBarButtonItem) {
@@ -49,7 +69,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tweets?.count ?? 0
+        return tweets.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -59,7 +79,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    func loadData(refreshControl:UIRefreshControl?){
+    func loadData(replaceItems:Bool=true,refreshControl:UIRefreshControl?){
         
         if refreshControl != nil {
             refreshControl!.endRefreshing()
@@ -71,13 +91,20 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         AvianSoundClient.sharedClient.homeTimeline({ (tweets: [Tweet]) -> () in
             
             self.currentSelectedTweet = nil
-            self.tweets = tweets
+            
+            if replaceItems {
+                self.tweets = tweets
+            }else{
+                self.tweets.appendContentsOf(tweets)
+            }
             
             for tweet in self.tweets {
                 print(tweet.text)
             }
             MBProgressHUD.hideHUDForView(self.view, animated: true)
             self.tableView.reloadData()
+            
+            self.isMoreDataLoading = false
             
             }, failure:  { (error: NSError!) -> () in
                 

@@ -91,7 +91,7 @@ class TweetDetailsViewController: UIViewController {
         AvianSoundClient.sharedClient.favorite(tweet, success: { () -> () in
             self.dismissViewControllerAnimated(true) {
                 print("favorited: \(self.tweet.text)")
-                self.firstViewController.loadData(nil)
+                self.firstViewController.loadData(true,refreshControl: nil)
             }
         }) {(error: NSError!) -> () in
             print("error: \(error.localizedDescription)")
@@ -103,7 +103,7 @@ class TweetDetailsViewController: UIViewController {
         AvianSoundClient.sharedClient.reTweet(tweet, success: { () -> () in
             self.dismissViewControllerAnimated(true) {
                 print("retweeted: \(self.tweet.text)")
-                self.firstViewController.loadData(nil)
+                self.firstViewController.loadData(true,refreshControl: nil)
             }
         }) {(error: NSError!) -> () in
             print("error: \(error.localizedDescription)")
@@ -136,7 +136,7 @@ class TweetDetailsViewController: UIViewController {
     func closeDetails(reloadList:Bool=false){
         dismissViewControllerAnimated(true) {
             if reloadList {
-                self.firstViewController.loadData(nil)
+                self.firstViewController.loadData(true,refreshControl: nil)
             }
         }
     }
