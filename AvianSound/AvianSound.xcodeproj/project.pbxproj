@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		367274151D5027300019B799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274141D5027300019B799 /* AppDelegate.swift */; };
+		367274171D5027300019B799 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274161D5027300019B799 /* LoginViewController.swift */; };
+		3672741A1D5027300019B799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 367274181D5027300019B799 /* Main.storyboard */; };
+		3672741C1D5027300019B799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3672741B1D5027300019B799 /* Assets.xcassets */; };
+		3672741F1D5027300019B799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3672741D1D5027300019B799 /* LaunchScreen.storyboard */; };
+		367274281D50355B0019B799 /* AvianSoundClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274271D50355B0019B799 /* AvianSoundClient.swift */; };
+		3672742D1D5046F30019B799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672742C1D5046F30019B799 /* User.swift */; };
+		3672742F1D5046FF0019B799 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672742E1D5046FF0019B799 /* Tweet.swift */; };
+		8598B0235BEFAF85385A8F37 /* Pods_AvianSound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135178148AB7B7C6870C0500 /* Pods_AvianSound.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		135178148AB7B7C6870C0500 /* Pods_AvianSound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AvianSound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		367274111D5027300019B799 /* AvianSound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvianSound.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		367274141D5027300019B799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		367274161D5027300019B799 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		367274191D5027300019B799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3672741B1D5027300019B799 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3672741E1D5027300019B799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		367274201D5027300019B799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		367274271D50355B0019B799 /* AvianSoundClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvianSoundClient.swift; sourceTree = "<group>"; };
+		3672742C1D5046F30019B799 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3672742E1D5046FF0019B799 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		39650BC33063322ED8CB97D4 /* Pods-AvianSound.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvianSound.release.xcconfig"; path = "Pods/Target Support Files/Pods-AvianSound/Pods-AvianSound.release.xcconfig"; sourceTree = "<group>"; };
+		DA87C9AD2016907A0C338C3E /* Pods-AvianSound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvianSound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AvianSound/Pods-AvianSound.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3672740E1D5027300019B799 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8598B0235BEFAF85385A8F37 /* Pods_AvianSound.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		367274081D5027300019B799 = {
+			isa = PBXGroup;
+			children = (
+				367274131D5027300019B799 /* AvianSound */,
+				367274121D5027300019B799 /* Products */,
+				AD2F0986425AE9B871382CB4 /* Pods */,
+				C463F55FEB6A9FB3530CA2B0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		367274121D5027300019B799 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				367274111D5027300019B799 /* AvianSound.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		367274131D5027300019B799 /* AvianSound */ = {
+			isa = PBXGroup;
+			children = (
+				3672742B1D5046920019B799 /* Views */,
+				3672742A1D5046870019B799 /* View Controllers */,
+				367274291D50467E0019B799 /* Models */,
+				367274261D50351C0019B799 /* API */,
+				367274141D5027300019B799 /* AppDelegate.swift */,
+				367274181D5027300019B799 /* Main.storyboard */,
+				3672741B1D5027300019B799 /* Assets.xcassets */,
+				3672741D1D5027300019B799 /* LaunchScreen.storyboard */,
+				367274201D5027300019B799 /* Info.plist */,
+			);
+			path = AvianSound;
+			sourceTree = "<group>";
+		};
+		367274261D50351C0019B799 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				367274271D50355B0019B799 /* AvianSoundClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		367274291D50467E0019B799 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3672742C1D5046F30019B799 /* User.swift */,
+				3672742E1D5046FF0019B799 /* Tweet.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3672742A1D5046870019B799 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				367274161D5027300019B799 /* LoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3672742B1D5046920019B799 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AD2F0986425AE9B871382CB4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA87C9AD2016907A0C338C3E /* Pods-AvianSound.debug.xcconfig */,
+				39650BC33063322ED8CB97D4 /* Pods-AvianSound.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C463F55FEB6A9FB3530CA2B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				135178148AB7B7C6870C0500 /* Pods_AvianSound.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		367274101D5027300019B799 /* AvianSound */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 367274231D5027300019B799 /* Build configuration list for PBXNativeTarget "AvianSound" */;
+			buildPhases = (
+				0EBBCEF9761ECBEF82059D95 /* [CP] Check Pods Manifest.lock */,
+				3672740D1D5027300019B799 /* Sources */,
+				3672740E1D5027300019B799 /* Frameworks */,
+				3672740F1D5027300019B799 /* Resources */,
+				EE50D38C616296B60DBA6F0C /* [CP] Embed Pods Frameworks */,
+				C478B87CAE84E563DBA26F81 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AvianSound;
+			productName = AvianSound;
+			productReference = 367274111D5027300019B799 /* AvianSound.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		367274091D5027300019B799 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = codepath;
+				TargetAttributes = {
+					367274101D5027300019B799 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = M35ZWLGMLT;
+					};
+				};
+			};
+			buildConfigurationList = 3672740C1D5027300019B799 /* Build configuration list for PBXProject "AvianSound" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 367274081D5027300019B799;
+			productRefGroup = 367274121D5027300019B799 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				367274101D5027300019B799 /* AvianSound */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3672740F1D5027300019B799 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3672741F1D5027300019B799 /* LaunchScreen.storyboard in Resources */,
+				3672741C1D5027300019B799 /* Assets.xcassets in Resources */,
+				3672741A1D5027300019B799 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EBBCEF9761ECBEF82059D95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C478B87CAE84E563DBA26F81 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AvianSound/Pods-AvianSound-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE50D38C616296B60DBA6F0C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AvianSound/Pods-AvianSound-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3672740D1D5027300019B799 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3672742D1D5046F30019B799 /* User.swift in Sources */,
+				3672742F1D5046FF0019B799 /* Tweet.swift in Sources */,
+				367274171D5027300019B799 /* LoginViewController.swift in Sources */,
+				367274281D50355B0019B799 /* AvianSoundClient.swift in Sources */,
+				367274151D5027300019B799 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		367274181D5027300019B799 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				367274191D5027300019B799 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3672741D1D5027300019B799 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3672741E1D5027300019B799 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		367274211D5027300019B799 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		367274221D5027300019B799 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		367274241D5027300019B799 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA87C9AD2016907A0C338C3E /* Pods-AvianSound.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = AvianSound/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.AvianSound;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		367274251D5027300019B799 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39650BC33063322ED8CB97D4 /* Pods-AvianSound.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = AvianSound/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.AvianSound;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3672740C1D5027300019B799 /* Build configuration list for PBXProject "AvianSound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				367274211D5027300019B799 /* Debug */,
+				367274221D5027300019B799 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		367274231D5027300019B799 /* Build configuration list for PBXNativeTarget "AvianSound" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				367274241D5027300019B799 /* Debug */,
+				367274251D5027300019B799 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 367274091D5027300019B799 /* Project object */;
+}
