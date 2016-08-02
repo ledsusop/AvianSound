@@ -1,6 +1,6 @@
-# Project 3 - *TwitMe*
+# Project 3 - *AvianSound*
 
-**TwitMe** is a basic twitter app to read and compose tweets from the [Twitter API](https://apps.twitter.com/).
+**AvianSound** is a basic twitter app to read and compose tweets from the [Twitter API](https://apps.twitter.com/).
 
 Time spent: **X** hours spent in total
 
