@@ -22,6 +22,7 @@ class AvianSoundClient:BDBOAuth1SessionManager {
     static let verifyCredentialPath = AvianSoundClient.twitterAPIVersion+"/account/verify_credentials.json"
     static let homeTimeLinePath = AvianSoundClient.twitterAPIVersion+"/statuses/home_timeline.json"
     static let tweetPath = AvianSoundClient.twitterAPIVersion+"/statuses/update.json"
+    static let reTweetBasePath = AvianSoundClient.twitterAPIVersion+"/statuses/retweet/"
     
     static let GET = "GET"
     static let POST = "POST"
@@ -147,6 +148,23 @@ class AvianSoundClient:BDBOAuth1SessionManager {
             
             //let dictionaries = response as! [NSDictionary]
             //let tweets = Tweet.tweetsWithArray(dictionaries)
+            
+            success()
+            
+            
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError!) -> Void in
+                
+                print("error: \(error.localizedDescription)")
+                failure(error)
+                
+        })
+    }
+    
+    func reTweet(tweet: Tweet, success: () -> (), failure: (NSError) -> ()){
+        
+        POST(AvianSoundClient.reTweetBasePath+String(tweet.id)+".json", parameters: nil, progress: nil, success: {(task: NSURLSessionDataTask, response: AnyObject?)-> Void in
+            print(response)
+            
             
             success()
             

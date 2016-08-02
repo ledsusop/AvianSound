@@ -89,6 +89,15 @@ class TweetDetailsViewController: UIViewController {
     }
     
     @IBAction func onRetweet(sender: UIButton) {
+        
+        AvianSoundClient.sharedClient.reTweet(tweet, success: { () -> () in
+            self.dismissViewControllerAnimated(true) {
+                print("retweeted: \(self.tweet.text)")
+                self.firstViewController.loadData(nil)
+            }
+        }) {(error: NSError!) -> () in
+            print("error: \(error.localizedDescription)")
+        }
     
     }
     
