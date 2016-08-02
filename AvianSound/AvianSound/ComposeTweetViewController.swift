@@ -18,7 +18,7 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tweetInput: UITextField!
     @IBOutlet weak var footerBottomConstraint: NSLayoutConstraint!
     
-    var firstViewController: TweetsViewController!
+    var firstViewController: UIViewController!
     var tweetToReplyTo:Tweet?
     
     internal func setUserProfile(imageView: UIImageView, nsURL: NSURL?){
@@ -54,7 +54,13 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
         AvianSoundClient.sharedClient.tweet(tweetInput.text!, tweetToReplyToId: (self.tweetToReplyTo != nil ? self.tweetToReplyTo!.id : nil),  success: { () -> () in
             self.dismissViewControllerAnimated(true) {
                 print("tweeted: \(self.tweetInput.text)")
-                self.firstViewController.loadData(nil)
+                
+                if let vc = self.firstViewController as? TweetsViewController{
+                    vc.loadData(nil)
+                }else if let vc = self.firstViewController as? TweetDetailsViewController{
+                     vc.closeDetails(true)
+                }
+                
             }
         }) {(error: NSError!) -> () in
             print("error: \(error.localizedDescription)")
@@ -150,6 +156,7 @@ class ComposeTweetViewController: UIViewController, UITextFieldDelegate {
         super.awakeFromNib()
         if tweetInput != nil  && tweetToReplyTo != nil{
             tweetInput.text = "@"+((tweetToReplyTo!.user?.screenName)! as String)+" "
+            tweetInput.becomeFirstResponder()
         }
     }
   

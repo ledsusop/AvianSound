@@ -128,8 +128,16 @@ class TweetDetailsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationController = segue.destinationViewController.childViewControllers[0] as? ComposeTweetViewController{
             destinationController.tweetToReplyTo = self.tweet
-            destinationController.firstViewController = self.firstViewController
+            destinationController.firstViewController = self
             
+        }
+    }
+    
+    func closeDetails(reloadList:Bool=false){
+        dismissViewControllerAnimated(true) {
+            if reloadList {
+                self.firstViewController.loadData(nil)
+            }
         }
     }
 
