@@ -14,7 +14,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     var tweets:[Tweet]!
-    
+    var currentSelectedTweet:Tweet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,14 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         self.performSegueWithIdentifier("composeSegue", sender: self)
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.currentSelectedTweet = self.tweets[indexPath.row]
+        self.performSegueWithIdentifier("tweetDetailsSegue", sender: self)
+        
+    }
+
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets?.count ?? 0
@@ -59,8 +67,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
         AvianSoundClient.sharedClient.homeTimeline({ (tweets: [Tweet]) -> () in
             
+            self.currentSelectedTweet = nil
             self.tweets = tweets
             
             for tweet in self.tweets {
@@ -82,8 +92,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationController = segue.destinationViewController.childViewControllers[0] as! ComposeTweetViewController
-        destinationController.firstViewController = self
+        
+        if let destinationController = segue.destinationViewController.childViewControllers[0] as? ComposeTweetViewController{
+            destinationController.firstViewController = self
+            
+        }else if let destinationController = segue.destinationViewController.childViewControllers[0] as? TweetDetailsViewController {
+            destinationController.firstViewController = self
+            destinationController.tweet = self.currentSelectedTweet
+        }
+        
+        
     }
     
 }

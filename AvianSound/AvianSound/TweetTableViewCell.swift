@@ -25,7 +25,7 @@ class TweetTableViewCell: UITableViewCell {
     internal func populateFields() {
         if tweet != nil {
             userName.text = tweet.user?.name as? String
-            userScreenName.text = tweet.user?.screenName as? String
+            userScreenName.text = "@"+((tweet.user?.screenName)! as String)
             tweetText.text = tweet.text as? String
             
             if let tweetDate = tweet.timeStamp {

@@ -18,6 +18,7 @@
 		367274311D5065980019B799 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274301D5065980019B799 /* TweetsViewController.swift */; };
 		367274331D506F070019B799 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274321D506F070019B799 /* TweetTableViewCell.swift */; };
 		367274351D5097AF0019B799 /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274341D5097AF0019B799 /* ComposeTweetViewController.swift */; };
+		367274371D5141090019B799 /* TweetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367274361D5141090019B799 /* TweetDetailsViewController.swift */; };
 		8598B0235BEFAF85385A8F37 /* Pods_AvianSound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135178148AB7B7C6870C0500 /* Pods_AvianSound.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		367274301D5065980019B799 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		367274321D506F070019B799 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		367274341D5097AF0019B799 /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTweetViewController.swift; sourceTree = "<group>"; };
+		367274361D5141090019B799 /* TweetDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailsViewController.swift; sourceTree = "<group>"; };
 		39650BC33063322ED8CB97D4 /* Pods-AvianSound.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvianSound.release.xcconfig"; path = "Pods/Target Support Files/Pods-AvianSound/Pods-AvianSound.release.xcconfig"; sourceTree = "<group>"; };
 		DA87C9AD2016907A0C338C3E /* Pods-AvianSound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvianSound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AvianSound/Pods-AvianSound.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 				367274161D5027300019B799 /* LoginViewController.swift */,
 				367274301D5065980019B799 /* TweetsViewController.swift */,
 				367274341D5097AF0019B799 /* ComposeTweetViewController.swift */,
+				367274361D5141090019B799 /* TweetDetailsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				3672742F1D5046FF0019B799 /* Tweet.swift in Sources */,
 				367274351D5097AF0019B799 /* ComposeTweetViewController.swift in Sources */,
 				367274311D5065980019B799 /* TweetsViewController.swift in Sources */,
+				367274371D5141090019B799 /* TweetDetailsViewController.swift in Sources */,
 				367274171D5027300019B799 /* LoginViewController.swift in Sources */,
 				367274281D50355B0019B799 /* AvianSoundClient.swift in Sources */,
 				367274151D5027300019B799 /* AppDelegate.swift in Sources */,
